@@ -5,10 +5,16 @@ using UnityEngine;
 public class Bird : MonoBehaviour {
 
     private bool isClick;
-    public Transform rightPos;
+    
     public float maxDis = 1.5f;
     private SpringJoint2D sp;
     private Rigidbody2D rg;
+
+    //获取引用
+    public LineRenderer right;
+    public Transform rightPos;
+    public LineRenderer left;
+    public Transform leftPos;
 
 
     private void Awake()
@@ -54,12 +60,27 @@ public class Bird : MonoBehaviour {
                 pos *= maxDis;
                 transform.position = pos + rightPos.position; 
             }
+
+            Line();
         }
     }
 
     void Fly()
     {
         sp.enabled = false;
+    }
+
+
+    /// <summary>
+    /// 画线
+    /// </summary>
+    void Line()
+    {
+        right.SetPosition(0, rightPos.position);
+        right.SetPosition(1, transform.position);
+
+        left.SetPosition(0, leftPos.position);
+        left.SetPosition(1, transform.position);
     }
 
 }
