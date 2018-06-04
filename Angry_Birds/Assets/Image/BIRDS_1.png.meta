@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1209e75636cb8f04cb2591a50a0ab9aa
-timeCreated: 1527847383
+timeCreated: 1528114046
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -1103,10 +1103,10 @@ TextureImporter:
       name: BIRDS_1_71
       rect:
         serializedVersion: 2
-        x: 54
-        y: 483
-        width: 104
-        height: 47
+        x: 39
+        y: 405
+        width: 130
+        height: 125
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1212,34 +1212,6 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BIRDS_1_79
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 440
-        width: 18
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BIRDS_1_80
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 407
-        width: 68
-        height: 72
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: BIRDS_1_81
       rect:
         serializedVersion: 2
@@ -1303,20 +1275,6 @@ TextureImporter:
         y: 410
         width: 31
         height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BIRDS_1_86
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 415
-        width: 33
-        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

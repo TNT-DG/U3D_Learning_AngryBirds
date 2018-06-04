@@ -5,9 +5,11 @@ using UnityEngine;
 public class Bird : MonoBehaviour {
 
     private bool isClick;
-    
+
     public float maxDis = 1.5f;
-    private SpringJoint2D sp;
+
+    [HideInInspector]
+    public SpringJoint2D sp;
     private Rigidbody2D rg;
 
     //获取引用
@@ -15,12 +17,16 @@ public class Bird : MonoBehaviour {
     public Transform rightPos;
     public LineRenderer left;
     public Transform leftPos;
+    public GameObject boom;
+
+    private TestMyTrail myTrail;
 
 
     private void Awake()
     {
         sp = gameObject.GetComponent<SpringJoint2D>();
         rg = gameObject.GetComponent<Rigidbody2D>();
+        myTrail = gameObject.GetComponent<TestMyTrail>();
     }
 
     /// <summary>
@@ -40,6 +46,9 @@ public class Bird : MonoBehaviour {
         isClick = false;
         rg.isKinematic = false;
         Invoke("Fly", 0.1f);
+        //禁用画线组件
+        right.enabled = false;
+        left.enabled = false;
     }
 
     private void Update()
@@ -67,7 +76,9 @@ public class Bird : MonoBehaviour {
 
     void Fly()
     {
+        myTrail.StartTrails();
         sp.enabled = false;
+        Invoke("Next", 5);
     }
 
 
@@ -76,11 +87,31 @@ public class Bird : MonoBehaviour {
     /// </summary>
     void Line()
     {
+        //启用画线组件
+        right.enabled = true;
+        left.enabled = true;
+
         right.SetPosition(0, rightPos.position);
         right.SetPosition(1, transform.position);
 
         left.SetPosition(0, leftPos.position);
         left.SetPosition(1, transform.position);
+    }
+
+    /// <summary>
+    /// 下一只小鸟飞出
+    /// </summary>
+    void Next()
+    {
+        GameManager._instance.birds.Remove(this);
+        Destroy(gameObject);
+        Instantiate(boom, transform.position, Quaternion.identity);
+        GameManager._instance.NextBird();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        myTrail.ClearTrails();
     }
 
 }
